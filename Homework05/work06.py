@@ -15,9 +15,14 @@
 # “Физкультура”: 30}
 
 
+import re
+
 subj = {}
 with open('file_6.txt', 'r') as init_f:
     for line in init_f:
-        subject, lecture, practice, lab = line.split()
-        subj[subject] = int(lecture) + int(practice) + int(lab)
+        line_clean = line.replace('-', '0')
+        subject, lecture, practice, lab = line_clean.split(' ')
+        subj[subject] = int(re.sub(r'\D', r'', lecture)) + int(re.sub(r'\D', r'', practice)) + int(
+            re.sub(r'\D', r'', lab))
+
     print(f'Общее количество часов по предмету - \n {subj}')
