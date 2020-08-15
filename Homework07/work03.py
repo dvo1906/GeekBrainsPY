@@ -40,7 +40,6 @@ class Cell:
     def __init__(self, quantity):
         self.quantity = int(quantity)
 
-
     def __str__(self):
         return f'Результат операции {self.quantity * "*"}'
 
@@ -49,7 +48,6 @@ class Cell:
 
     def __sub__(self, other):
         return self.quantity - other.quantity if (self.quantity - other.quantity) > 0 else print('Отрицательно!')
-
 
     def __mul__(self, other):
         return Cell(int(self.quantity * other.quantity))

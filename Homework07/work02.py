@@ -28,8 +28,8 @@ class Textil:
 
     @property
     def get_sq_full(self):
-        return str(f'Площадь общая ткани \n'
-                   f' {(self.width / 6.5 + 0.5) + (self.height * 2 + 0.3)}')
+        return str(f'Площадь общая ткани'
+                   f' {self.get_square_c() + self.get_square_j()}')
 
 
 class Coat(Textil):
