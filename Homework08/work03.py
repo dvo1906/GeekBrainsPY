@@ -10,23 +10,27 @@ class Error:
         self.my_list = []
 
     def my_input(self):
-
         while True:
             try:
                 val = int(input('Введите значения и нажимайте Enter - '))
                 self.my_list.append(val)
-                print(f'Текущий список - {self.my_list} \n ')
-            except:
-                print(f"Недопустимое значение - строка и булево")
-                y_or_n = input(f'Попробовать еще раз? Y/N ')
-
-                if y_or_n == 'Y' or y_or_n == 'y':
-                    print(try_except.my_input())
-                elif y_or_n == 'N' or y_or_n == 'n':
-                    return f'Вы вышли'
-                else:
-                    return f'Вы вышли'
+                return f'Текущий список - {self.my_list} \n '
+            except ValueError:
+                return False
 
 
 try_except = Error(1)
-print(try_except.my_input())
+Stop = False
+while not Stop:
+    checkList = try_except.my_input()
+    if not checkList:
+        print(f"Недопустимое значение - строка или булево")
+        y_or_n = input(f'Продолжить ввод? Y/N ')
+        if y_or_n == 'Y' or y_or_n == 'y':
+            Stop = False
+        elif y_or_n == 'N' or y_or_n == 'n':
+            Stop = True
+        else:
+            Stop = True
+    else:
+        print(checkList)

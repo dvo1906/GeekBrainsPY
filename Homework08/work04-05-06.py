@@ -20,7 +20,6 @@
 # Подсказка: постарайтесь по возможности реализовать в проекте «Склад оргтехники»
 # максимум возможностей, изученных на уроках по ООП.
 
-
 class StoreMashines:
 
     def __init__(self, name, price, quantity, number_of_lists, *args):
@@ -59,17 +58,17 @@ class StoreMashines:
 
 class Printer(StoreMashines):
     def to_print(self):
-        return f'to print smth {self.numb} times'
+        return f'{self.name}: распечатано {self.numb} листов'
 
 
 class Scanner(StoreMashines):
     def to_scan(self):
-        return f'to scan smth {self.numb} times'
+        return f'{self.name}: отсканировано {self.numb} раз'
 
 
 class Copier(StoreMashines):
     def to_copier(self):
-        return f'to copier smth  {self.numb} times'
+        return f'{self.name}: сделано копий {self.numb} шт.'
 
 
 unit_1 = Printer('hp', 2000, 5, 10)

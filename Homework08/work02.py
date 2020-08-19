@@ -13,12 +13,19 @@ class DivisionByNull:
     @staticmethod
     def divide_by_null(divider, denominator):
         try:
-            return (divider / denominator)
-        except:
-            return (f"Деление на ноль недопустимо")
+            return divider / denominator
+        except ZeroDivisionError:
+            return f"Деление на ноль недопустимо"
 
 
-div = DivisionByNull(10, 100)
-print(DivisionByNull.divide_by_null(10, 0))
-print(DivisionByNull.divide_by_null(10, 0.1))
-print(div.divide_by_null(100, 0))
+Stop = False
+while not Stop:
+    print(DivisionByNull.divide_by_null(float(input('Введите делимое и нажмите Enter - ')),
+                                        float(input('Введите делитель и нажмите Enter - '))))
+    y_or_n = input(f'Попробовать еще раз? Y/N ')
+    if y_or_n == 'Y' or y_or_n == 'y':
+        Stop = False
+    elif y_or_n == 'N' or y_or_n == 'n':
+        Stop = True
+    else:
+        Stop = True
